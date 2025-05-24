@@ -19,7 +19,7 @@ pipeline {
                 cleanWs()
             }
         }
-        stage('Checkout from Git') 
+        stage('Checkout from Git') {
             steps {
                 git branch: 'main', url: 'https://github.com/demtchayan/a-reddit-clone.git'
             }
@@ -49,6 +49,8 @@ pipeline {
                 sh "trivy fs . > trivyfs.txt"
              }
          }
+	    
+	/* Commenting out all subsequent stages and post section
 	 stage("Build & Push Docker Image") {
              steps {
                  script {
@@ -97,4 +99,5 @@ pipeline {
         }
      }
     
+    */
 }
